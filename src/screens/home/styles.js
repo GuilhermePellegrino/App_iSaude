@@ -29,16 +29,6 @@ const styles = StyleSheet.create({
     color: COLORS.PRIMARY_GRAY,
     fontSize: 12,
   },
-  primaryButton: {
-    width: "100%",
-    backgroundColor: COLORS.PRIMARY_BLUE,
-    padding: 15,
-    borderRadius: 10,
-    alignItems: "center",
-  },
-  primaryButtonText: {
-    color: "white",
-  },
   secondaryButton: {
     width: "100%",
     backgroundColor: COLORS.THIRD_BLUE,

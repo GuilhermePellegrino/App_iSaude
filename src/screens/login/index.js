@@ -9,6 +9,7 @@ import {
 import styles from "./styles";
 
 import { Feather } from "@expo/vector-icons";
+import Button from "../../components/Button";
 
 export default function Login() {
   return (
@@ -44,10 +45,10 @@ export default function Login() {
             </View>
           </View>
         </View>
-        <TouchableOpacity style={styles.primaryButton}>
-          <Text style={styles.primaryButtonText}>Continuar</Text>
-          <Feather name="arrow-right" size={18} color="white" />
-        </TouchableOpacity>
+        <Button
+          text="Continuar"
+          icon={<Feather name="arrow-right" size={18} color="white" />}
+        />
         <View style={styles.signUpWrapper}>
           <Text>
             Novo por aqui?{" "}

@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
+import Button from "../../components/Button";
 
 export default function Home() {
   const navigation = useNavigation();
@@ -28,9 +29,7 @@ export default function Home() {
             acolhedora. Crie sua conta. Leva menos de 2 minutos!
           </Text>
 
-          <TouchableOpacity style={styles.primaryButton}>
-            <Text style={styles.primaryButtonText}>Criar uma conta</Text>
-          </TouchableOpacity>
+          <Button text="Criar uma conta" />
 
           <TouchableOpacity
             style={styles.secondaryButton}

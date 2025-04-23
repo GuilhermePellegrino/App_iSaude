@@ -51,22 +51,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: COLORS.GRAY_TEXT,
   },
-  primaryButton: {
-    width: "100%",
-    backgroundColor: COLORS.PRIMARY_BLUE,
-    padding: 15,
-    borderRadius: 12,
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 5,
-    flexDirection: "row",
-  },
   forgotPasswordWrapper: {
     marginTop: 10,
     alignItems: "flex-end",
-  },
-  primaryButtonText: {
-    color: "white",
   },
   signUpWrapper: {
     alignItems: "center",
