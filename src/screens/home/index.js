@@ -1,9 +1,39 @@
-import { SafeAreaView, Text } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import styles from "./styles";
 
 export default function Home() {
   return (
-    <SafeAreaView>
-      <Text>HOME</Text>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <View style={styles.logoContainer}>
+          <Image source={require("../../../assets/logo-isaude.png")} />
+          <Image source={require("../../../assets/imagem-inicial.png")} />
+        </View>
+
+        <View style={styles.textContainer}>
+          <Text style={styles.title}>A sua nova Rede Social favorita!</Text>
+          <Text style={styles.description}>
+            Conecte-se a uma comunidade que valoriza sua saúde e bem-estar.
+            Aqui, você encontra apoio de profissionais com vídeo-consultas,
+            compartilha conquistas e gerencia sua rotina de forma integrada e
+            acolhedora. Crie sua conta. Leva menos de 2 minutos!
+          </Text>
+
+          <TouchableOpacity style={styles.primaryButton}>
+            <Text style={styles.primaryButtonText}>Criar uma conta</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.secondaryButton}>
+            <Text style={styles.secondaryButtonText}>Fazer login</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </SafeAreaView>
   );
 }

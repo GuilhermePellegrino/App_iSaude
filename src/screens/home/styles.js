@@ -1,0 +1,53 @@
+import { StyleSheet } from "react-native";
+import COLORS from "../../constants/colors";
+
+const styles = StyleSheet.create({
+  safeArea: {
+    backgroundColor: "white",
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+    paddingHorizontal: 15,
+    paddingVertical: 25,
+    gap: 20,
+  },
+  logoContainer: {
+    display: "flex",
+    alignItems: "center",
+  },
+  textContainer: {
+    gap: 10,
+  },
+  title: {
+    color: COLORS.PRIMARY_BLACK,
+    fontSize: 18,
+    fontWeight: "700",
+  },
+  description: {
+    color: COLORS.PRIMARY_GRAY,
+    fontSize: 12,
+  },
+  primaryButton: {
+    width: "100%",
+    backgroundColor: COLORS.PRIMARY_BLUE,
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+  primaryButtonText: {
+    color: "white",
+  },
+  secondaryButton: {
+    width: "100%",
+    backgroundColor: COLORS.THIRD_BLUE,
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+  secondaryButtonText: {
+    color: COLORS.PRIMARY_BLUE,
+  },
+});
+
+export default styles;

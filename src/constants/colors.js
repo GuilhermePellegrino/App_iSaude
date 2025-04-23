@@ -1,6 +1,9 @@
 const COLORS = {
   PRIMARY_BLUE: "#537EE9",
   SECONDARY_BLUE: "#7597ED",
+  THIRD_BLUE: "#F0F4FF",
+  PRIMARY_BLACK: "#1D1D1D",
+  PRIMARY_GRAY: "#6F7288",
 };
 
 export default COLORS;
