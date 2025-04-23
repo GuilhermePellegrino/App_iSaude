@@ -4,6 +4,8 @@ const COLORS = {
   THIRD_BLUE: "#F0F4FF",
   PRIMARY_BLACK: "#1D1D1D",
   PRIMARY_GRAY: "#6F7288",
+  THIRD_GRAY: "#EFF1F5",
+  GRAY_TEXT: "#6F7288",
 };
 
 export default COLORS;

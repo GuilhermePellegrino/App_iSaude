@@ -6,8 +6,11 @@ import {
   View,
 } from "react-native";
 import styles from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Home() {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
@@ -29,7 +32,10 @@ export default function Home() {
             <Text style={styles.primaryButtonText}>Criar uma conta</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.secondaryButton}>
+          <TouchableOpacity
+            style={styles.secondaryButton}
+            onPress={() => navigation.navigate("Login")}
+          >
             <Text style={styles.secondaryButtonText}>Fazer login</Text>
           </TouchableOpacity>
         </View>
