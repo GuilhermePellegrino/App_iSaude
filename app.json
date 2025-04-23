@@ -4,11 +4,11 @@
     "slug": "empex",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo-isaude-splash.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/logo-isaude.png",
+      "image": "./assets/logo-isaude-splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#537EE9"
     },
