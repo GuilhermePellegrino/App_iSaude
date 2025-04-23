@@ -9,12 +9,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 15,
-    paddingVertical: 25,
-    gap: 20,
+    paddingVertical: 40,
+    gap: 40,
   },
   logoContainer: {
     display: "flex",
     alignItems: "center",
+    gap: 40,
   },
   textContainer: {
     gap: 10,
