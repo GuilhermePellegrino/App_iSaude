@@ -29,7 +29,10 @@ export default function Home() {
             acolhedora. Crie sua conta. Leva menos de 2 minutos!
           </Text>
 
-          <Button text="Criar uma conta" />
+          <Button
+            text="Criar uma conta"
+            onPress={() => navigation.navigate("Registro")}
+          />
 
           <TouchableOpacity
             style={styles.secondaryButton}
