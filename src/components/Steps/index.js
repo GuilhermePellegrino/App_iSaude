@@ -1,4 +1,3 @@
-// components/StepIndicator.tsx
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
@@ -6,19 +5,37 @@ export const Steps = ({ steps, currentStep }) => {
   return (
     <View style={styles.container}>
       {steps.map((label, index) => {
-        const isActive = index <= currentStep;
+        const isCompleted = index < currentStep;
+        const isActive = index === currentStep;
+
         return (
           <View key={index} style={styles.stepContainer}>
-            <View style={[styles.circle, isActive && styles.activeCircle]}>
-              <Text style={[styles.stepText, isActive && styles.activeText]}>
-                {index + 1}
+            <View
+              style={[
+                styles.circle,
+                isCompleted && styles.completedCircle,
+                isActive && styles.activeCircle,
+              ]}
+            >
+              <Text style={styles.stepText}>
+                {isCompleted ? "✓" : index + 1}
               </Text>
             </View>
-            <Text style={[styles.label, isActive && styles.activeLabel]}>
+            <Text
+              style={[
+                styles.label,
+                (isActive || isCompleted) && styles.activeLabel,
+              ]}
+            >
               {label}
             </Text>
             {index < steps.length - 1 && (
-              <View style={[styles.line, isActive && styles.activeLine]} />
+              <View
+                style={[
+                  styles.line,
+                  (isActive || isCompleted) && styles.activeLine,
+                ]}
+              />
             )}
           </View>
         );
@@ -50,12 +67,13 @@ const styles = StyleSheet.create({
   activeCircle: {
     backgroundColor: "#537EE9",
   },
+  completedCircle: {
+    backgroundColor: "#01AEA4",
+  },
   stepText: {
     color: "#fff",
     fontWeight: "bold",
-  },
-  activeText: {
-    color: "#fff",
+    fontSize: 16,
   },
   label: {
     marginLeft: 8,
