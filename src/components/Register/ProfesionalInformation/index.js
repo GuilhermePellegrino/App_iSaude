@@ -1,6 +1,14 @@
 import { useState } from "react";
 import Button from "../../Button";
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Modal,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import COLORS from "../../../constants/colors";
 import RNPickerSelect from "react-native-picker-select";
 import { Feather } from "@expo/vector-icons";
@@ -8,6 +16,7 @@ import { Feather } from "@expo/vector-icons";
 export default function ProfesionalInformation({ onConfirm }) {
   const [selectedValue, setSelectedValue] = useState("");
   const [checked, setChecked] = useState(false);
+  const [modalIsVisible, setModalIsVisible] = useState(false);
 
   return (
     <View style={{ gap: 20 }}>
@@ -33,6 +42,7 @@ export default function ProfesionalInformation({ onConfirm }) {
             color: COLORS.GRAY_TEXT,
             textDecorationLine: "underline",
           }}
+          onPress={() => setModalIsVisible(true)}
         >
           Por que pedimos essa informação?
         </Text>
@@ -81,6 +91,64 @@ export default function ProfesionalInformation({ onConfirm }) {
         icon={<Feather name="arrow-right" size={18} color="white" />}
         onPress={onConfirm}
       />
+      <Modal
+        animationType="slide"
+        visible={modalIsVisible}
+        onRequestClose={() => setModalIsVisible(false)}
+      >
+        <SafeAreaView>
+          <View style={{ gap: 20, paddingHorizontal: 15, paddingVertical: 40 }}>
+            <Text style={{ fontSize: 18, fontWeight: 700 }}>
+              Por que o meu registro profissional é importante?
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              Seu registro no conselho da sua categoria é a sua credencial para
+              atuar com segurança e ética.
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              Ele comprova sua qualificação, protege seus pacientes e garante
+              que você faça parte de uma rede de profissionais comprometidos com
+              a excelência.
+            </Text>
+            <Text style={{ fontSize: 18, fontWeight: 700 }}>
+              Qual é o registro correto para a minha profissão?
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              - Médicos: CRM (Conselho Regional de Medicina)
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              - Enfermeiros e Técnicos de Enfermagem: COREN (Conselho Regional
+              de Enfermagem)
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              - Psicólogos: CRP (Conselho Regional de Psicologia)
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              - Odontólogos: CRO (Conselho Regional de Odontologia)
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              - Farmacêuticos: CRF (Conselho Regional de Farmácia)
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              - Nutricionistas: CRN (Conselho Regional de Nutrição)
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              - Fisioterapeutas: CREFITO (Conselho Regional de Fisioterapia e
+              Terapia Ocupacional)
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              - Fonoaudiólogos: CRFa (Conselho Regional de Fonoaudiologia)
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              - Veterinários: CRMV (Conselho Regional de Medicina Veterinária)
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              Dúvidas? Consulte o site do conselho da sua categoria.
+            </Text>
+            <Button text="Entendi" onPress={() => setModalIsVisible(false)} />
+          </View>
+        </SafeAreaView>
+      </Modal>
     </View>
   );
 }

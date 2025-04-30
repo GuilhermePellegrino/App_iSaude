@@ -17,6 +17,7 @@ export default function PersonalInformationForm({ onConfirm }) {
   const [selectedValue, setSelectedValue] = useState("");
   const [checked, setChecked] = useState(false);
   const [modalIsVisible, setModalIsVisible] = useState(false);
+  const [modalTermsIsVisible, setModalTermsIsVisible] = useState(false);
 
   return (
     <View style={{ gap: 20 }}>
@@ -91,8 +92,14 @@ export default function PersonalInformationForm({ onConfirm }) {
             {checked && <View style={styles.checkboxInner} />}
           </View>
           <Text style={styles.text}>
-            Li e concordo com os <Text style={styles.link}>Termos de Uso</Text>{" "}
-            e a <Text style={styles.link}>Política de Privacidade</Text>.
+            Li e concordo com os{" "}
+            <Text
+              style={styles.link}
+              onPress={() => setModalTermsIsVisible(true)}
+            >
+              Termos de Uso e a Política de Privacidade
+            </Text>
+            .
           </Text>
         </Pressable>
       </View>
@@ -101,6 +108,69 @@ export default function PersonalInformationForm({ onConfirm }) {
         icon={<Feather name="arrow-right" size={18} color="white" />}
         onPress={onConfirm}
       />
+      <Modal
+        animationType="slide"
+        visible={modalTermsIsVisible}
+        onRequestClose={() => setModalTermsIsVisible(false)}
+      >
+        <SafeAreaView>
+          <View style={{ gap: 20, paddingHorizontal: 15, paddingVertical: 40 }}>
+            <Text style={{ fontSize: 18, fontWeight: 700 }}>
+              Termos de Serviço e Utilização
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              Para proteger cada etapa da sua jornada, solicitamos seu CPF por 3
+              motivos muito importantes:
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              1. Validar sua identidade com segurança durante consultas e
+              procedimentos médicos.
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              2. Garantir transparência na emissão de notas fiscais para exames,
+              medicamentos e serviços.
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              3. Assegurar a integridade das transações e dos seus dados
+              pessoais.
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              Assim, mantemos um ambiente confiável e transparente para você e
+              toda nossa comunidade.
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              Fique tranquilo(a)! Seus dados são protegidos com os mais altos
+              padrões de segurança, e usaremos essas informações apenas para seu
+              benefício.
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              1. Validar sua identidade com segurança durante consultas e
+              procedimentos médicos.
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              2. Garantir transparência na emissão de notas fiscais para exames,
+              medicamentos e serviços.
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              3. Assegurar a integridade das transações e dos seus dados
+              pessoais.
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              Assim, mantemos um ambiente confiável e transparente para você e
+              toda nossa comunidade.
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              Fique tranquilo(a)! Seus dados são protegidos com os mais altos
+              padrões de segurança, e usaremos essas informações apenas para seu
+              benefício.
+            </Text>
+            <Button
+              text="Concordo com os termos"
+              onPress={() => setModalTermsIsVisible(false)}
+            />
+          </View>
+        </SafeAreaView>
+      </Modal>
       <Modal
         animationType="slide"
         visible={modalIsVisible}
