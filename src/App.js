@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Home from "./screens/home";
 import Register from "./screens/register";
 import PatientRegister from "./screens/register/patient";
+import HealtProfessionalRegister from "./screens/register/healthProfessional";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +17,10 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Registro" component={Register} />
         <Stack.Screen name="Registro-Paciente" component={PatientRegister} />
+        <Stack.Screen
+          name="Registro-Profissional"
+          component={HealtProfessionalRegister}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

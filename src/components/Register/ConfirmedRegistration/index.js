@@ -2,15 +2,25 @@ import { Image, Text, View } from "react-native";
 import COLORS from "../../../constants/colors";
 import Button from "../../Button";
 
-export default function ConfirmedRegistration({ onConfirm }) {
+export default function ConfirmedRegistration({
+  onConfirm,
+  isProfessional = false,
+}) {
   return (
     <View style={{ gap: 10 }}>
       <View style={{ gap: 40 }}>
         <View style={{ alignItems: "center" }}>
-          <Image
-            source={require("../../../../assets/cadastro-confirmado.png")}
-            style={{ width: 280, height: 280 }}
-          />
+          {isProfessional ? (
+            <Image
+              source={require("../../../../assets/cadastro-confirmado-profissional.png")}
+              style={{ width: 280, height: 280 }}
+            />
+          ) : (
+            <Image
+              source={require("../../../../assets/cadastro-confirmado.png")}
+              style={{ width: 280, height: 280 }}
+            />
+          )}
         </View>
 
         <Text style={{ fontSize: 18, fontWeight: 700 }}>

@@ -46,6 +46,7 @@ export default function Register() {
               justifyContent: "space-between",
               backgroundColor: "#7597ED",
             }}
+            onPress={() => navigation.navigate("Registro-Profissional")}
           />
           <Button
             text="Continuar como Unidade de Saúde"

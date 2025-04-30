@@ -10,8 +10,11 @@ import styles from "./styles";
 
 import { Feather } from "@expo/vector-icons";
 import Button from "../../components/Button";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Login() {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.imageContainer}>
@@ -52,7 +55,12 @@ export default function Login() {
         <View style={styles.signUpWrapper}>
           <Text>
             Novo por aqui?{" "}
-            <Text style={styles.decoratedText}>crie uma conta!</Text>
+            <Text
+              style={styles.decoratedText}
+              onPress={() => navigation.navigate("Registro")}
+            >
+              crie uma conta!
+            </Text>
           </Text>
         </View>
       </View>
