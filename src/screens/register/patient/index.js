@@ -6,9 +6,27 @@ import PersonalInformationForm from "../../../components/Register/PersonalInform
 import ContactForm from "../../../components/Register/ContactForm";
 import UsernameForm from "../../../components/Register/UsernameForm";
 import PictureForm from "../../../components/Register/PictureForm";
+import { useNavigation } from "@react-navigation/native";
+import ConfirmedRegistration from "../../../components/Register/ConfirmedRegistration";
+import PasswordForm from "../../../components/Register/PasswordForm";
+
+const namesDict = {
+  0: "Vamos Criar sua Conta!",
+  1: "Vamos manter você conectado(a)!",
+  2: "Escolha seu nome de usuário!",
+  3: "Agora vamos criar uma Senha!",
+  4: "Foto de Perfil",
+  5: "Cadastro Confirmado!",
+};
+
+const getNameByStep = (currentStep) => {
+  return namesDict[currentStep] ?? "";
+};
 
 export default function PatientRegister() {
   const [currentStep, setCurrentStep] = useState(0);
+
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       <View
@@ -19,7 +37,7 @@ export default function PatientRegister() {
         }}
       >
         <Text style={{ fontSize: 18, fontWeight: 600 }}>
-          Vamos criar sua conta!
+          {getNameByStep(currentStep)}
         </Text>
         <Steps steps={["", "", "", ""]} currentStep={currentStep} />
       </View>
@@ -41,7 +59,17 @@ export default function PatientRegister() {
         )}
 
         {currentStep === 3 && (
+          <PasswordForm onConfirm={() => setCurrentStep((prev) => prev + 1)} />
+        )}
+
+        {currentStep === 4 && (
           <PictureForm onConfirm={() => setCurrentStep((prev) => prev + 1)} />
+        )}
+
+        {currentStep === 5 && (
+          <ConfirmedRegistration
+            onConfirm={() => navigation.navigate("Login")}
+          />
         )}
       </View>
     </SafeAreaView>
