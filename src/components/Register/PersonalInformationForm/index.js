@@ -1,6 +1,14 @@
 import { useState } from "react";
 import Button from "../../Button";
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Modal,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import COLORS from "../../../constants/colors";
 import RNPickerSelect from "react-native-picker-select";
 import { Feather } from "@expo/vector-icons";
@@ -8,6 +16,7 @@ import { Feather } from "@expo/vector-icons";
 export default function PersonalInformationForm({ onConfirm }) {
   const [selectedValue, setSelectedValue] = useState("");
   const [checked, setChecked] = useState(false);
+  const [modalIsVisible, setModalIsVisible] = useState(false);
 
   return (
     <View style={{ gap: 20 }}>
@@ -29,6 +38,7 @@ export default function PersonalInformationForm({ onConfirm }) {
             color: COLORS.GRAY_TEXT,
             textDecorationLine: "underline",
           }}
+          onPress={() => setModalIsVisible(true)}
         >
           Por que pedimos seu CPF?
         </Text>
@@ -91,6 +101,45 @@ export default function PersonalInformationForm({ onConfirm }) {
         icon={<Feather name="arrow-right" size={18} color="white" />}
         onPress={onConfirm}
       />
+      <Modal
+        animationType="slide"
+        visible={modalIsVisible}
+        onRequestClose={() => setModalIsVisible(false)}
+      >
+        <SafeAreaView>
+          <View style={{ gap: 20, paddingHorizontal: 15, paddingVertical: 40 }}>
+            <Text style={{ fontSize: 18, fontWeight: 700 }}>
+              Sua segurança em primeiro lugar!
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              Para proteger cada etapa da sua jornada, solicitamos seu CPF por 3
+              motivos muito importantes:
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              1. Validar sua identidade com segurança durante consultas e
+              procedimentos médicos.
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              2. Garantir transparência na emissão de notas fiscais para exames,
+              medicamentos e serviços.
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              3. Assegurar a integridade das transações e dos seus dados
+              pessoais.
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              Assim, mantemos um ambiente confiável e transparente para você e
+              toda nossa comunidade.
+            </Text>
+            <Text style={{ fontSize: 12, color: COLORS.GRAY_TEXT }}>
+              Fique tranquilo(a)! Seus dados são protegidos com os mais altos
+              padrões de segurança, e usaremos essas informações apenas para seu
+              benefício.
+            </Text>
+            <Button text="Entendi" onPress={() => setModalIsVisible(false)} />
+          </View>
+        </SafeAreaView>
+      </Modal>
     </View>
   );
 }
@@ -180,5 +229,14 @@ const styles = StyleSheet.create({
   link: {
     color: "#007AFF",
     textDecorationLine: "underline",
+  },
+
+  modalBox: {
+    width: 280,
+    backgroundColor: "#fff",
+    padding: 20,
+    borderRadius: 12,
+    alignItems: "center",
+    elevation: 6,
   },
 });
