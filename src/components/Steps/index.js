@@ -29,14 +29,6 @@ export const Steps = ({ steps, currentStep }) => {
             >
               {label}
             </Text>
-            {index < steps.length - 1 && (
-              <View
-                style={[
-                  styles.line,
-                  (isActive || isCompleted) && styles.activeLine,
-                ]}
-              />
-            )}
           </View>
         );
       })}

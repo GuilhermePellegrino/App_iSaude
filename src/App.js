@@ -6,6 +6,7 @@ import Home from "./screens/home";
 import Register from "./screens/register";
 import PatientRegister from "./screens/register/patient";
 import HealtProfessionalRegister from "./screens/register/healthProfessional";
+import HealthUnitRegister from "./screens/register/healthUnit";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ export default function App() {
           name="Registro-Profissional"
           component={HealtProfessionalRegister}
         />
+        <Stack.Screen name="Registro-Unidade" component={HealthUnitRegister} />
       </Stack.Navigator>
     </NavigationContainer>
   );

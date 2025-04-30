@@ -52,6 +52,7 @@ export default function Register() {
             text="Continuar como Unidade de Saúde"
             icon={<Feather name="arrow-right" size={18} color="white" />}
             additionalStyles={{ justifyContent: "space-between" }}
+            onPress={() => navigation.navigate("Registro-Unidade")}
           />
           <Button
             text="Continuar como Farmácia"
