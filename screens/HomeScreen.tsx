@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, SafeAreaView, Text, TouchableOpacity, View, Linking, ImageBackground } from "react-native";
+import { Image, SafeAreaView, Text, TouchableOpacity, View, Linking, ImageBackground, Alert } from "react-native";
 import { Input } from "../components/ui/Input";
 import { Button } from "../components/ui/Button";
 import { ReusableModal } from "../components/ui/ReusableModal";
@@ -7,6 +7,8 @@ import { ChevronRight, ArrowRight, KeyRound, IdCard } from "lucide-react-native"
 import { Link } from "../components/ui/Link";
 import { NavigationProp } from "../types/navigation";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { mockUsers } from "../mockUsers";
+import { UserType } from "../types/userTypes";
 
 interface HomeScreenProps {
     navigation: NavigationProp;
@@ -49,6 +51,32 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
     const handleNavigateToRegister = () => {
         setModalVisible(false); // Fecha o modal
         navigation.navigate('Register');
+    };
+
+    const handleLogin = () => {
+        // Mock login: find user by cpfCnpj (using email field for simplicity)
+        const user = mockUsers.find(u => u.email === cpfCnpj.trim().toLowerCase());
+        if (!user) {
+            Alert.alert("Erro", "Usuário não encontrado.");
+            return;
+        }
+        // For mock, ignore password check or add a simple check if needed
+        // Redirect based on userType
+        switch(user.userType) {
+            case UserType.Common:
+            case UserType.Patient:
+                navigation.navigate('PatientDashboard');
+                break;
+            case UserType.Clinician:
+                navigation.navigate('ClinicianDashboard');
+                break;
+            case UserType.Administrator:
+                navigation.navigate('AdministrativeDashboard');
+                break;
+            default:
+                navigation.navigate('Home');
+        }
+        setModalVisible(false);
     };
 
     return (
@@ -94,7 +122,7 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
                             Esqueci minha Senha!
                         </Link>
                     </View>
-                    <Button onPress={() => { }} icon={<ArrowRight size={20} color="white" />}>
+                    <Button onPress={handleLogin} icon={<ArrowRight size={20} color="white" />}>
                         Continuar
                     </Button>
                     <View className="flex-row justify-center mt-4">
