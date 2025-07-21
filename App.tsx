@@ -49,6 +49,8 @@ import PatientDashboard from './screens/PatientDashboard';
 import ClinicianDashboard from './screens/ClinicianDashboard';
 import ProfessionalDashboard from './screens/ProfessionalDashboard';
 
+import LocalizacaoScreen from 'screens/Pacientes/Localizacao';
+
 import './global.css';
 
 const Stack = createNativeStackNavigator();
@@ -100,6 +102,8 @@ export default function App() {
         <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
         <Stack.Screen name="Terms" component={Terms} />
         <Stack.Screen name="Polity" component={Polity} />
+        <Stack.Screen name="Localizacao" component={LocalizacaoScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, SafeAreaView, Text, View, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import { ScrollView, SafeAreaView, Text, View, TouchableOpacity, StyleSheet, Alert, Button } from "react-native";
 import { User, UserPlus, Calendar, Search, Pill, FileText, ClipboardList, Bell } from "lucide-react-native";
 
 export default function PatientDashboard() {
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 16,
+    marginTop:25,
   },
   menuContainer: {
     flexDirection: "row",

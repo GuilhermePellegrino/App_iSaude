@@ -65,7 +65,7 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
         switch(user.userType) {
             case UserType.Common:
             case UserType.Patient:
-                navigation.navigate('PatientDashboard');
+                navigation.navigate('Localizacao');
                 break;
             case UserType.Clinician:
                 navigation.navigate('ClinicianDashboard');
